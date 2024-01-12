@@ -2,13 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-        pathname: "/**",
-      },
-    ],
+    domains: ["blazebuy.s3.amazonaws.com", "lh3.googleusercontent.com"],
   },
 };
 
