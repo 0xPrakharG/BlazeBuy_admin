@@ -11,31 +11,31 @@ export default function ProductForm({
   description: existingDescription,
   price: existingPrice,
   images: existingImages,
-  // category: assignedCategory,
-  // properties: assignedProperties,
+  category: assignedCategory,
+  properties: assignedProperties,
 }) {
   const [title, setTitle] = useState(existingTitle || "");
   const [description, setDescription] = useState(existingDescription || "");
-  // const [category, setCategory] = useState(assignedCategory || "");
-  // const [productProperties, setProductProperties] = useState(
-  //   assignedProperties || {},
-  // );
+  const [category, setCategory] = useState(assignedCategory || "");
+  const [productProperties, setProductProperties] = useState(
+    assignedProperties || {},
+  );
   const [price, setPrice] = useState(existingPrice || "");
   const [images, setImages] = useState(existingImages || []);
   const [goToProducts, setGoToProducts] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
-  // const [categories, setCategories] = useState([]);
-  // const [categoriesLoading, setCategoriesLoading] = useState(false);
+  const [categories, setCategories] = useState([]);
+  const [categoriesLoading, setCategoriesLoading] = useState(false);
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   setCategoriesLoading(true);
-  //   axios.get("/api/categories").then((result) => {
-  //     setCategories(result.data);
-  //     setCategoriesLoading(false);
-  //   });
-  // }, []);
+  useEffect(() => {
+    setCategoriesLoading(true);
+    axios.get("/api/categories").then((result) => {
+      setCategories(result.data);
+      setCategoriesLoading(false);
+    });
+  }, []);
 
   async function saveProduct(ev) {
     ev.preventDefault();
@@ -45,8 +45,8 @@ export default function ProductForm({
       description,
       price,
       images,
-      // category,
-      // properties: productProperties,
+      category,
+      properties: productProperties,
     };
 
     if (_id) {
@@ -89,28 +89,28 @@ export default function ProductForm({
   //   setImages(images);
   // }
 
-  // function setProductProp(propName, value) {
-  //   setProductProperties((prev) => {
-  //     const newProductProps = { ...prev };
-  //     newProductProps[propName] = value;
-  //     return newProductProps;
-  //   });
-  // }
+  function setProductProp(propName, value) {
+    setProductProperties((prev) => {
+      const newProductProps = { ...prev };
+      newProductProps[propName] = value;
+      return newProductProps;
+    });
+  }
 
-  // const propertiesToFill = [];
-  // if (categories.length > 0 && category) {
-  //   let catInfo = categories.find(({ _id }) => _id === category);
+  const propertiesToFill = [];
+  if (categories.length > 0 && category) {
+    let catInfo = categories.find(({ _id }) => _id === category);
 
-  //   propertiesToFill.push(...catInfo.properties);
+    propertiesToFill.push(...catInfo.properties);
 
-  //   while (catInfo?.parent?._id) {
-  //     const parentCat = categories.find(
-  //       ({ _id }) => _id === catInfo?.parent?._id,
-  //     );
-  //     propertiesToFill.push(...parentCat.properties);
-  //     catInfo = parentCat;
-  //   }
-  // }
+    while (catInfo?.parent?._id) {
+      const parentCat = categories.find(
+        ({ _id }) => _id === catInfo?.parent?._id,
+      );
+      propertiesToFill.push(...parentCat.properties);
+      catInfo = parentCat;
+    }
+  }
 
   return (
     <form onSubmit={saveProduct}>
@@ -121,7 +121,7 @@ export default function ProductForm({
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
       />
-      {/* <label>Category</label>
+      <label>Category</label>
       <select value={category} onChange={(ev) => setCategory(ev.target.value)}>
         <option value="">Uncategorized</option>
         {categories.length > 0 &&
@@ -130,9 +130,9 @@ export default function ProductForm({
               {c.name}
             </option>
           ))}
-      </select> */}
-      {/* {categoriesLoading && <Spinner />} */}
-      {/* {propertiesToFill.length > 0 &&
+      </select>
+      {categoriesLoading && <Spinner />}
+      {propertiesToFill.length > 0 &&
         propertiesToFill.map((p) => (
           <div className="" key={p._id}>
             <label>{p.name[0].toUpperCase() + p.name.substring(1)}</label>
@@ -149,7 +149,7 @@ export default function ProductForm({
               </select>
             </div>
           </div>
-        ))} */}
+        ))}
       <label>Photos</label>
       <div className="mb-2 flex flex-wrap gap-1">
         {/* <ReactSortable
@@ -204,7 +204,7 @@ export default function ProductForm({
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
-      <label>Price (in USD)</label>
+      <label>Price (in INR)</label>
       <input
         type="number"
         placeholder="price"
