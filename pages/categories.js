@@ -215,7 +215,7 @@ function Categories({ swal }) {
                   <td>
                     <button
                       onClick={() => editCategory(category)}
-                      className="btn-default mr-1"
+                      className="btn-default mr-2"
                     >
                       Edit
                     </button>

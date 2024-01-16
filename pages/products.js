@@ -16,13 +16,13 @@ export default function Products() {
       setIsLoading(false);
     });
   }, []);
-  
+
   return (
     <Layout>
       <Link className="btn-primary" href={"/products/new"}>
         Add new product
       </Link>
-      <table className="basic mt-2">
+      <table className="basic mt-4">
         <thead>
           <tr>
             <td>Product name</td>

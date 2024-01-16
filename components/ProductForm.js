@@ -117,7 +117,7 @@ export default function ProductForm({
       <label>Product name</label>
       <input
         type="text"
-        placeholder="product name"
+        placeholder="Product Name"
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
       />
@@ -161,7 +161,7 @@ export default function ProductForm({
           images.map((link) => (
             <div
               key={link}
-              className="h-24 rounded-sm border-gray-200 bg-white shadow-sm"
+              className="h-24 rounded-sm border-gray-200 bg-white shadow-sm p-3 border"
             >
               <Image
                 src={link}
@@ -200,14 +200,14 @@ export default function ProductForm({
       </div>
       <label>Description</label>
       <textarea
-        placeholder="description"
+        placeholder="Description"
         value={description}
         onChange={(ev) => setDescription(ev.target.value)}
       />
       <label>Price (in INR)</label>
       <input
         type="number"
-        placeholder="price"
+        placeholder="Price"
         value={price}
         onChange={(ev) => setPrice(ev.target.value)}
       />
