@@ -22,6 +22,9 @@ select:focus {
 h1 {
   @apply mb-4 text-xl text-gray-800;
 }
+h2 {
+  @apply mb-2 mt-6 text-lg text-gray-800;
+}
 
 label {
   @apply text-sm text-gray-600;
@@ -40,12 +43,8 @@ table.basic thead tr th {
   @apply border-b border-gray-300 px-4 py-2 text-sm uppercase text-gray-600;
 }
 
-table.basic tbody tr td {
-  @apply border-b border-gray-300;
-}
-
 table.basic tr td {
-  @apply px-4 py-3;
+  @apply border-b border-gray-300 px-4 py-3;
 }
 
 table.basic a {
