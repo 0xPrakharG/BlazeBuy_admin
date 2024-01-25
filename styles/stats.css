@@ -1,0 +1,19 @@
+.tile-grid {
+  @apply grid grid-cols-1 sm:grid-cols-3 gap-4;
+}
+
+.tile {
+  @apply bg-white p-4 text-center text-blue-900 shadow-md;
+}
+
+.tile-header {
+  @apply m-0 text-center text-xs font-bold uppercase text-gray-500;
+}
+
+.tile-number {
+  @apply my-1 text-center text-3xl font-bold;
+}
+
+.tile-desc {
+  @apply text-xs text-gray-400;
+}

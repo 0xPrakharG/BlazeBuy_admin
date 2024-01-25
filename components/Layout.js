@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   const { data: session } = useSession();
   if (!session) {
     return (
-      <div className="bg-bgGray flex h-screen w-screen items-center">
+      <div className="flex h-screen w-screen items-center bg-bgGray">
         <div className="w-full text-center">
           <button
             className="rounded-lg bg-white p-2 px-4"
@@ -21,8 +21,8 @@ export default function Layout({ children }) {
     );
   }
   return (
-    <div className="bg-bgGray min-h-screen">
-      <div className="block flex items-center p-4 md:hidden">
+    <div className="min-h-screen bg-bgGray">
+      <div className="flex items-center p-4 md:hidden">
         <button onClick={() => setShowNav((prev) => !prev)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ export default function Layout({ children }) {
         </div>
       </div>
       <div className="flex">
-        <Nav show={showNav} />
+        <Nav show={showNav} setShow={setShowNav} />
         <div className="flex-grow p-4">{children}</div>
       </div>
     </div>

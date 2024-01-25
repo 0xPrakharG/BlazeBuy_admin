@@ -44,8 +44,11 @@ export default function Orders() {
                   {order.paid ? "YES" : "NO"}
                 </td>
                 <td>
-                  {order.name} {order.email} {order.city} {order.postalCode}{" "}
-                  {order.country} {order.streetAddress}
+                  {order.name}
+                  <br />
+                  {order.email} {order.city} {order.postalCode} {order.country}
+                  <br />
+                  {order.streetAddress}
                 </td>
                 <td>
                   {order.line_items.map((l) => (

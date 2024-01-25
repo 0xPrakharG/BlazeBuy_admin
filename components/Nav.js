@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Logo from "./Logo";
 
-export default function Nav({ show }) {
+export default function Nav({ show, setShow }) {
   const inactiveLink = "flex gap-1 p-1 rounded-sm";
   const activeLink = inactiveLink + " bg-highlight text-black";
   const inactiveIcon = "w-6 h-6";
@@ -24,8 +24,26 @@ export default function Nav({ show }) {
         " fixed top-0 h-full w-full bg-bgGray p-4 text-gray-500 transition-all md:static md:w-auto"
       }
     >
-      <div className="mb-4 mr-4">
+      <div className="mb-4 mr-4 flex justify-between">
         <Logo />
+        {show && (
+          <button onClick={() => setShow(false)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2.0}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        )}
       </div>
       <nav className="flex flex-col gap-2">
         <Link
