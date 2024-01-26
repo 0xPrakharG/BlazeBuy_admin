@@ -6,7 +6,6 @@ import { Admin } from "@/models/Admin";
 import { mongooseConnect } from "@/lib/mongoose";
 
 async function isAdminEmail(email) {
-  return true;
   return !!(await Admin.findOne({ email }));
 }
 
