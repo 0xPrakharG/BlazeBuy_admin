@@ -68,7 +68,7 @@ export default function HomeStats() {
       <div className="tile-grid">
         <div className="tile">
           <h3 className="tile-header">Today</h3>
-          <div className="tile-number">₹{ordersTotal(ordersToday)}k</div>
+          <div className="tile-number">₹{ordersTotal(ordersToday) || '0'}k</div>
           <div className="tile-desc">{ordersToday.length} orders today</div>
         </div>
         <div className="tile">
